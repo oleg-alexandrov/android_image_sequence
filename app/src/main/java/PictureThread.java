@@ -6,7 +6,7 @@ import java.lang.Thread;
 // in use, and wait until the picture is processed and the
 // camera is again not marked in use before continuing.
 
-public class PictureThread implements Runnable  {
+public class PictureThread implements Runnable {
 
     private AndroidImageSequence m_parent;
 
@@ -19,8 +19,8 @@ public class PictureThread implements Runnable  {
         while (true) {
             try {
 
-                // TODO: Not sure if all the logic here must be in the critical section,
-                // but it is safer that way
+                // TODO: Not sure if all the logic here must be in the
+                // critical section, but it is safer that way
                 
                 synchronized(m_parent) {
                     
@@ -40,7 +40,6 @@ public class PictureThread implements Runnable  {
                         Thread.sleep(10); // sleep 0.01 seconds
                         continue;
                     }
-                    
                     
                     // Mark the camera in use
                     m_parent.inUse = true;
